@@ -15,6 +15,18 @@ describe Pizza::Pie do
 			expect(pizza.toppings).to eq(toppings)
 		end		
 	end
+
+	context 'When no toppings are requested' do
+		describe '.initialize' do
+			it 'defaults the toppings to cheese only' do
+				pizza = Pizza::Pie.new
+
+				expect(pizza.toppings.size).to eq 1
+				expect(pizza.toppings.first.name).to eq 'cheese'
+			end
+		end
+	end
+
 end 
 
 describe Pizza::Topping do
